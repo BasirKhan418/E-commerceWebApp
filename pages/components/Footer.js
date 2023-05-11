@@ -1,14 +1,17 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 const Footer = () => {
   return (
     <div>
       <footer className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-      <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <Link href={"/"}>
        <Image src="/specarelogo1.png" height={300} width={300} className='mx-4 px-4'/>
-      </a>
+       </Link>
+      </div>
       <p className="mt-2 text-sm text-gray-500">Specare - We deliver what you want! A shopping website</p>
     </div>
     <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">

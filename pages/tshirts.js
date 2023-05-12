@@ -13,8 +13,8 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
-          <p className="mt-1">S ,M ,XL ,XXL</p>
+          <p className="mt-1 text-gray-900 title-font text-lg font-medium">₹599</p>
+          <p className="mt-1 font-bold">S ,M ,XL ,XXL</p>
         </div>
       </div>
       </Link>
@@ -25,7 +25,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -37,7 +37,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -61,7 +61,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -73,7 +73,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -85,7 +85,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>
@@ -97,7 +97,7 @@ const Tshirt = () => {
         <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">T-shirt</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Wear the code</h2>
-          <p className="mt-1">₹599</p>
+          <p className="mt-1 font-bold text-gray-900 title-font text-lg font-medium">₹599</p>
           <p className="mt-1">S ,M ,XL ,XXL</p>
         </div>
       </div>

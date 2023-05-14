@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Tshirt = () => {
   return (
     <div>
-      <section className="text-gray-600 body-font bg-white">
+      <section className="text-gray-600 body-font bg-white z-10">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4 justify-center">
       <Link href={"/products/tshirt"} className="lg:w-1/5 md:w-1/2 p-4 w-full cursor-pointer shadow-xl m-2"><div>

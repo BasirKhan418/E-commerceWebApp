@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
         <Link href={"/"}>
-       <Image src="/specarelogo1.png" height={300} width={300} className='mx-4 px-4'/>
+       <Image src="/specarelogo1.png" height={300} width={300} className='mx-4 px-4' alt="logo"/>
        </Link>
       </div>
       <p className="mt-2 text-sm text-gray-500">Specare - We deliver what you want! A shopping website</p>

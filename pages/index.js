@@ -11,7 +11,7 @@ export default function Home() {
       <meta name="description" content='Specare is a online shopping website '/>
       <link rel='icon' href="/favicon.ico"/>
      </Head>
-    <Image src="/home1.jpg" width={2000} height={250}/>
+    <Image alt="Home image" src="/home1.jpg" width={2000} height={250}/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">

@@ -21,7 +21,7 @@ else if(!ref.current.classList.contains("translate-x-full")){
     <Link href={"/"}>
       <div className="logo mx-5">
           
-            <img src="/specarelogo1.png" width={200} height={40}/>
+            <img alt="logo" src="/specarelogo1.png" width={200} height={40}/>
             
         </div></Link>
         <div className="nav">
@@ -55,10 +55,14 @@ else if(!ref.current.classList.contains("translate-x-full")){
           </li>
           
         </ol>
-        
-    <button className="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-sm">
+       <div className="flex">
+    <button className="flex mx-auto mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
       <BsFillBagCheckFill className="m-1"/>Checkout
     </button>
+    <button className="flex mx-auto mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
+    Clear cart
+    </button>
+    </div> 
         </div>
     </div>
     

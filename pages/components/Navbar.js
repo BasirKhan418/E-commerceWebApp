@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillCloseCircle, AiFillPlusCircle, AiOutlineShoppingCart ,AiFillMinusCircle} from 'react-icons/Ai';
 import {BsFillBagCheckFill} from 'react-icons/Bs';
+import {MdAccountCircle} from 'react-icons/Md';
 const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
   const ref = useRef()
   const toggleCart=()=>{
@@ -21,7 +22,7 @@ else if(!ref.current.classList.contains("translate-x-full")){
     <Link href={"/"}>
       <div className="logo mx-5">
           
-            <img alt="logo" src="/specarelogo1.png" width={200} height={40}/>
+            <img alt="logo" src="/specarelogo1.png" width={150} height={40}/>
             
         </div></Link>
         <div className="nav">
@@ -33,9 +34,10 @@ else if(!ref.current.classList.contains("translate-x-full")){
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
             </ul>
         </div>
-        <div className="cart absolute right-0 top-4 mx-5" onClick={toggleCart}>
+        <div className="cart absolute right-0 top-4 mx-5 flex" >
          {/* <AiOutlineShoppingCart className="text-3xl md:text-xl"/> */}
-         <AiOutlineShoppingCart className="text-xl md:text-3xl cursor-pointer"/>
+         <Link href={"/Login"}><MdAccountCircle className="text-xl md:text-3xl cursor-pointer mx-4"/></Link>
+         <AiOutlineShoppingCart className="text-xl md:text-3xl cursor-pointer" onClick={toggleCart}/>
         </div>
         <div ref={ref} className="w-72 h-[100vh] sidebar absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform translate-x-full z-20">
           <h2 className="font-bold text-xl text-center">Shopping Cart</h2>

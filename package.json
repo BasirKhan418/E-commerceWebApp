@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn run build",
+    "react-icons": "yarn add react-icons",
     "start": "yarn start",
     "lint": "next lint"
   },

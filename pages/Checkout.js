@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
-import {AiFillPlusCircle,AiFillMinusCircle} from 'react-icons/Ai';
-import {BsFillBagCheckFill} from 'react-icons/Bs';
+import {AiFillPlusCircle,AiFillMinusCircle} from 'react-icons/ai';
+import {BsFillBagCheckFill} from 'react-icons/bs';
 const Checkout = ({cart,addToCart,removeFromCart,subTotal}) => {
   return (
     <div className='container px-2 sm:m-auto'>

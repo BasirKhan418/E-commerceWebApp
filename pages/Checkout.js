@@ -62,7 +62,7 @@ const Checkout = ({cart,addToCart,removeFromCart,subTotal}) => {
           {Object.keys(cart).map((k)=>{return<li key={k}>
             <div className="item flex my-5">
           <div className='font-semibold'>{cart[k].name}</div>
-          <div className="flex items-center justify-center w-1/3 font-semibold text-xl"><AiFillMinusCircle onClick={()=>{removeFromCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className="cursor-pointer text-pink-500"/><span className='mx-3 text-sm'>{cart[k].qty}</span><AiFillPlusCircle onClick={()=>{addToCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className='cursor-pointer text-pink-500'/></div>
+          <div className="flex items-center justify-center w-1/3 font-semibold text-xl"><><AiFillMinusCircle onClick={()=>{removeFromCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className="cursor-pointer text-pink-500"/></><span className='mx-3 text-sm'>{cart[k].qty}</span><><AiFillPlusCircle onClick={()=>{addToCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className='cursor-pointer text-pink-500'/></></div>
           </div>
           </li>})}
          
@@ -72,7 +72,7 @@ const Checkout = ({cart,addToCart,removeFromCart,subTotal}) => {
         </div>
         <div className="mx-8">
        <Link href={"/order"}><button className="flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
-      <BsFillBagCheckFill className="m-1"/>Pay ₹{subTotal}
+     <> <BsFillBagCheckFill className="m-1"/> </>Pay ₹{subTotal}
     </button>
     </Link> 
     </div> 

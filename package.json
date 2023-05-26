@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "react-icons": "yarn add react-icons",
+    "build": "npm i",
     "start": "yarn start",
     "lint": "next lint"
   },

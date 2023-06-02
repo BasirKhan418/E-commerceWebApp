@@ -7,15 +7,15 @@ import {MdAccountCircle} from 'react-icons/md';
 const Navbar = ({cart,addToCart,removeFromCart,clearCart,subTotal}) => {
   const ref = useRef()
   const toggleCart=()=>{
-if(ref.current.classList.contains("translate-x-full")){
-  ref.current.classList.remove('translate-x-full')
-  ref.current.classList.add("translate-x-0")
-}
-else if(!ref.current.classList.contains("translate-x-full")){
-  ref.current.classList.remove('translate-x-0')
-  ref.current.classList.add("translate-x-full")
-}
-  }
+    if(ref.current.classList.contains("translate-x-full")){
+      ref.current.classList.remove('translate-x-full')
+      ref.current.classList.add("translate-x-0")
+    }
+    else if(!ref.current.classList.contains("translate-x-full")){
+      ref.current.classList.remove('translate-x-0')
+      ref.current.classList.add("translate-x-full")
+    }
+      }
   return (
     <>
     <div className='flex flex-col md:flex-row md:justify-start justify-center items-center mb-1 py-2 shadow-xl bg-white sticky top-0 z-10'>
@@ -39,7 +39,7 @@ else if(!ref.current.classList.contains("translate-x-full")){
          <Link href={"/Login"}><><MdAccountCircle className="text-xl md:text-3xl cursor-pointer mx-4"/></></Link>
          <><AiOutlineShoppingCart className="text-xl md:text-3xl cursor-pointer" onClick={toggleCart}/></>
         </div>
-        <div ref={ref} className="w-72 h-[100vh] sidebar absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform translate-x-full z-20">
+        <div ref={ref} className={`w-72 h-[100vh] sidebar absolute top-0 right-0 bg-pink-100 px-8 py-10 transform overflow-y-scroll transition-transform ${Object.keys(cart).length!==0?'translate-x-0':'translate-x-full'} z-20`}>
           <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
           <span onClick={toggleCart} className='absolute top-5 right-2 cursor-pointer text-2xl text-pink-500'><><AiFillCloseCircle/></></span>
          <ol className='list-decimal'>

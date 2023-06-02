@@ -27,10 +27,10 @@ else if(!ref.current.classList.contains("translate-x-full")){
         </div></Link>
         <div className="nav">
             <ul className="flex items-center space-x-6 font-bold md:text-md">
-            <Link href={"/tshirts"}> <li>Tshirts</li></Link>
-            <Link href={"/hoodies"}> <li>Hoodies</li></Link>      
-            <Link href={"/stickers"}> <li>Stickers</li></Link>
-            <Link href={"/mugs"}> <li>Mugs</li></Link>
+            <Link href={"/tshirts"}> <li className='hover:text-pink-600'>Tshirts</li></Link>
+            <Link href={"/hoodies"}> <li  className='hover:text-pink-600'>Hoodies</li></Link>      
+            <Link href={"/stickers"}> <li  className='hover:text-pink-600'>Stickers</li></Link>
+            <Link href={"/mugs"}> <li  className='hover:text-pink-600'>Mugs</li></Link>
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
             </ul>
         </div>
@@ -46,7 +46,7 @@ else if(!ref.current.classList.contains("translate-x-full")){
           {Object.keys(cart).length==0&&<div className='my-4 font-semibold'>Your Cart is Empty!</div>}
           {Object.keys(cart).map((k)=>{return<li key={k}>
             <div className="item flex my-5">
-          <div className='w-2/3 font-semibold'>{cart[k].name}</div>
+          <div className='w-2/3 font-semibold'>{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
           <div className="flex items-center justify-center w-1/3 font-semibold text-xl"><><AiFillMinusCircle onClick={()=>{removeFromCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className="cursor-pointer text-pink-500"/></><span className='mx-3 text-sm'>{cart[k].qty}</span><><AiFillPlusCircle onClick={()=>{addToCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className='cursor-pointer text-pink-500'/></></div>
           </div>
           </li>})}

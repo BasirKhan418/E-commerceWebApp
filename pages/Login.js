@@ -42,6 +42,7 @@ setPassword(e.target.value)
         progress: undefined,
         theme: "light",
         });
+        localStorage.setItem('token',response.token);
         setTimeout(()=>{
           router.push('/')
           },1500)

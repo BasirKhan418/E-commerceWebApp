@@ -1,11 +1,18 @@
+var CryptoJS = require("crypto-js");
+var jwt = require('jsonwebtoken');
 import connectDb from "../middleware/mongoose";
 import User from "@/models/User";
 const handler = async (req, res) => {
   if (req.method == "POST") {
     let user= await User.findOne({"email":req.body.email});
+    const bytes  = CryptoJS.AES.decrypt(user.password, 'secret123');
+    const decryptpass = bytes.toString(CryptoJS.enc.Utf8);
     if(user){
-        if(req.body.email==user.email&&req.body.password==user.password){ 
-    res.status(200).json({ success: true,email:user.email,name:user.name});
+        if(req.body.email==user.email&&req.body.password==decryptpass){ 
+          const token = jwt.sign({email:user.email,name:user.name}, 'secret12345',{
+            expiresIn: '3d' 
+          });
+    res.status(200).json({success: true,token});
 }
 else{
 

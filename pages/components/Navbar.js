@@ -35,7 +35,7 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal}) 
             {/* <Link href={"/"}> <a><li>Tshirts</li></a></Link> */}
             </ul>
         </div>
-        <div className="cart  items-center absolute right-0 top-4 mx-5 flex" >
+        <div className="cart items-center absolute right-0 top-4 mx-5 flex" >
           <a onMouseOver={()=>{setDropdown(true)}} onMouseLeave={()=>{setDropdown(false)}}>
           {dropdown&&<div className='absolute right-8 bg-white shadow-lg top-5 rounded-md px-5 w-36 py-4'>
             <Link href={'/myaccount'}><li className='py-1 text-sm hover:text-pink-700 list-none font-bold'>My Account</li></Link>
@@ -43,9 +43,9 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal}) 
             <li onClick={logout} className='py-1 text-sm hover:text-pink-700 list-none font-bold'>Logout</li>
           </div>}
          {/* <AiOutlineShoppingCart className="text-3xl md:text-xl"/> */}
-        {user.value&&<MdAccountCircle onMouseOver={()=>{setDropdown(true)}} onMouseLeave={()=>{setDropdown(false)}} className="text-xl md:text-3xl cursor-pointer mx-4"/>}
+        {user&&<MdAccountCircle onMouseOver={()=>{setDropdown(true)}} onMouseLeave={()=>{setDropdown(false)}} className="text-xl md:text-3xl cursor-pointer mx-4"/>}
         </a>
-        {!user.value&&<Link href={"/Login"}><>
+        {!user&&<Link href={"/Login"}><>
          <button className='bg-pink-600 px-2 py-1 rounded-md text-sm text-white mx-2'>Login</button></></Link>}
          <><AiOutlineShoppingCart className="text-xl md:text-3xl cursor-pointer" onClick={toggleCart}/></>
         </div>

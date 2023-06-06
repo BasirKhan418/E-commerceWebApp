@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
 const router = useRouter();
   const[cart,setCart]=useState({})
   const[subTotal,setSubtotal]=useState(0)
-  const [user,setUser]=useState({value:null});
+  const [user,setUser]=useState(false);
   const [key,setKey]=useState(0);
   const [progress, setProgress] = useState(0)
   useEffect(()=>{
@@ -32,7 +32,7 @@ if(localStorage.getItem("cart")){
     }
     const token = localStorage.getItem('token');
     if(token){
-    setUser({value:token})
+    setUser(true)
     setKey(Math.random());
     }
   },[router.query])
@@ -59,7 +59,7 @@ if(localStorage.getItem("cart")){
   const logout=()=>{
     localStorage.removeItem('token');
     setKey(Math.random());
-    setUser({value:null});
+    setUser(false);
     toast.success('Logged out successfully', {
       position: "top-left",
       autoClose: 1000,

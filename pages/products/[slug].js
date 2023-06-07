@@ -10,7 +10,7 @@ const slug = ({addToCart,product,variants,buyNow}) => {
     const [pin,Setpin]=useState()
     const [service,setService]=useState();
     const checkService= async()=>{
-    let pins = await fetch('http://localhost:3000/api/Pincodes');
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
     let pinjson= await pins.json()
     // console.log(pinjson)
     if(pinjson.includes(parseInt(pin))){

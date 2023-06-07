@@ -10,10 +10,10 @@ const Signup = () => {
     router.push('/');
     }
   })
-  const [name,setName]=useState();
-  const [email,setEmail]=useState();
-  const [password,setPassword]=useState();
-  const [npassword,setnPassword]=useState();
+  const [name,setName]=useState('');
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+  const [npassword,setnPassword]=useState('');
   const handleChange=(e)=>{
   if(e.target.name=="name"){
  setName(e.target.value)
@@ -33,7 +33,7 @@ setnPassword(e.target.value)
     try{
         const data ={name,email,password};
         if(password==npassword){
-    const res = await fetch("http://localhost:3000/api/signup", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

@@ -60,6 +60,7 @@ if(localStorage.getItem("cart")){
     localStorage.removeItem('token');
     setKey(Math.random());
     setUser(false);
+    router.push('/');
     toast.success('Logged out successfully', {
       position: "top-left",
       autoClose: 1000,

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
+import Script from 'next/script'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <meta name="description" content='Specare is a online shopping website '/>
       <link rel='icon' href="/favicon.ico"/>
      </Head>
+    
     <Image alt="Home image" src="/home1.jpg" width={2000} height={250}/>
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">

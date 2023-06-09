@@ -25,11 +25,11 @@ const handler = async (req, res) => {
   //     razorpay_payment_id: 'pay_LzpFe1jHO8rymk',
   // razorpay_order_id: 'order_LzpFVdVQVloXpf',
   // razorpay_signature:
-      await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Paid",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
-      res.redirect('/order',200);
+     let order= await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Paid",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
+      res.redirect('/order?id='+order._id,200);
       }
     else{
-      await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Pending",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
+      let order =await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Pending",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
     }
   }
   export default connectDb(handler)

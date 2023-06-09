@@ -49,7 +49,7 @@ const slug = ({addToCart,product,variants,buyNow}) => {
     const refreshVariants=(newsize,newcolor)=>{
       console.log("color is",newcolor,"size",newsize);
       console.log("variants is",variants)
-     let url=`${NEXT_PUBLIC_HOST}/products/${variants[newcolor][newsize]['slug']}`;
+     let url=`${process.env.NEXT_PUBLIC_HOST}/products/${variants[newcolor][newsize]['slug']}`;
      window.location=url;
     }
     return(

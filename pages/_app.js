@@ -33,8 +33,8 @@ if(localStorage.getItem("cart")){
     const token = localStorage.getItem('token');
     if(token){
     setUser(true)
-    setKey(Math.random());
-    }
+  }
+  setKey(Math.random());
   },[router.query])
   const saveCart =(myCart)=>{
   localStorage.setItem("cart",JSON.stringify(myCart));
@@ -98,7 +98,7 @@ if(localStorage.getItem("cart")){
   waitingTime={400}
   progress={progress}
   onLoaderFinished={() => setProgress(0)}
-/> <Navbar logout={logout} user={user} key={key} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}/> <ToastContainer
+/> {key && <Navbar logout={logout} user={user} key={key} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal}/>} <ToastContainer
   position="top-left"
   autoClose={5000}
   hideProgressBar={false}

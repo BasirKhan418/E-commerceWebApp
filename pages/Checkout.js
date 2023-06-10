@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";;
-import Head from "next/head";
-import Script from "next/script";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import Razorpay from "razorpay";
 const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
   const[name,setName]=useState('');
@@ -13,7 +14,7 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
   const[city,setCity]=useState('');
   const[state,setState]=useState('');
   const[disabled,setDisabled]=useState(true);
- const handleChange=(e)=>{
+ const handleChange=async(e)=>{
   if(e.target.name=='name'){
     setName(e.target.value);
   }
@@ -28,6 +29,22 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
   }
   else if(e.target.name=='pincode'){
     setPincode(e.target.value)
+    if(e.target.value.length==6){
+      let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
+    let pinjson= await pins.json()
+    if(Object.keys(pinjson).includes(e.target.value)){
+      setState(pinjson[e.target.value][1]);
+      setCity(pinjson[e.target.value][0]);
+    }
+    else{
+      setState('')
+      setCity('')
+    }
+    }
+    else{
+      setState('')
+      setCity('')
+    }
   }
  
  }
@@ -55,16 +72,16 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
     );
  
     const r = await response.json();
-    console.log(r);
+    if(r.success){
     var options =  {
       key: `${process.env.NEXT_PUBLIC_KEY_ID}`,
        // Enter the Key ID generated from the Dashboard
-      amount: r.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      amount: r.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Specare E-com Shopping", //your business name
       description: "Specare Ecom",
       image: "/specarelogo2.png",
-      order_id: r.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      order_id: r.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: `${process.env.NEXT_PUBLIC_HOST}/api/postcheckout`,
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
@@ -82,10 +99,36 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
     var rzp1 = new window.Razorpay(options);
     await rzp1.open();
     e.preventDefault();
+  }
+  else{
+    console.log(r.error);
+    toast.error(r.error, {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
   };
 
   return (
     <div className="container px-2 sm:m-auto">
+       <ToastContainer
+position="bottom-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
       {/* <Head>
         <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
       </Head> */}
@@ -179,11 +222,11 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
             </label>
             <input
             value={state}
+            onChange={handleChange}
               type="state"
               id="state"
               name="state"
               className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              readOnly={true}
             />
           </div>
         </div>
@@ -194,11 +237,12 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
             </label>
             <input
             value={city}
+            onChange={handleChange}
               type="text"
               id="city"
               name="city"
               className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            readOnly={true}/>
+           />
           </div>
         </div>
       </div>

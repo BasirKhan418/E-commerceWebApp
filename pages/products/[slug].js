@@ -13,7 +13,7 @@ const slug = ({addToCart,product,variants,buyNow}) => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
     let pinjson= await pins.json()
     // console.log(pinjson)
-    if(pinjson.includes(parseInt(pin))){
+    if(Object.keys(pinjson).includes(pin)){
       setService(true)
       toast.success('Yah! Your Pin Code is Serviceable', {
         position: "bottom-center",

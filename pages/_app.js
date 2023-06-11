@@ -30,9 +30,9 @@ if(localStorage.getItem("cart")){
     console.log(error)
     localStorage.clear()
     }
-    const token = localStorage.getItem('token');
-    if(token){
-    setUser(true)
+    const myUser = JSON.parse(localStorage.getItem('myUser'));
+    if(myUser){
+    setUser({value:myUser.token,email:myUser.email})
   }
   setKey(Math.random());
   },[router.query])
@@ -57,7 +57,7 @@ if(localStorage.getItem("cart")){
    saveCart(newCart);
   }
   const logout=()=>{
-    localStorage.removeItem('token');
+    localStorage.removeItem('myUser');
     setKey(Math.random());
     setUser(false);
     router.push('/');
@@ -110,5 +110,5 @@ if(localStorage.getItem("cart")){
   draggable
   pauseOnHover
   theme="light"
-  /> <Component buyNow={buyNow} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps}/><Footer/></>
+  /> <Component user={user} buyNow={buyNow} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps}/><Footer/></>
 }

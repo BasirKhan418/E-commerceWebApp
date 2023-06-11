@@ -1,6 +1,7 @@
 import * as crypto from "crypto"
 import connectDb from "../middleware/mongoose";
 import Order from "@/models/Order";
+import Product from "@/models/Product";
 const handler = async (req, res) => {
   let order ;
   console.log(req.body);
@@ -26,8 +27,13 @@ const handler = async (req, res) => {
   //     razorpay_payment_id: 'pay_LzpFe1jHO8rymk',
   // razorpay_order_id: 'order_LzpFVdVQVloXpf',
   // razorpay_signature:
+ 
      order= await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Paid",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});
-      res.redirect('/order?id='+order._id,200);
+     let products = order.products;
+     for (let slug in products){
+       await Product.findOneAndUpdate({slug:slug},{$inc:{"availableQty":-products[slug].qty }})
+     }
+      res.redirect(`/order?id=${order._id}&clearCart=1`,200);
       }
     else{
        order =await Order.findOneAndUpdate({orderID:req.body.razorpay_order_id},{status:"Pending",payment_id:req.body.razorpay_payment_id,payment_signature:req.body.razorpay_signature});

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // import Razorpay from "razorpay";
-const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
+const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   const[name,setName]=useState('');
   const[email,setEmail]=useState('');
   const[phone,setPhone]=useState('');
@@ -14,6 +14,14 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
   const[city,setCity]=useState('');
   const[state,setState]=useState('');
   const[disabled,setDisabled]=useState(true);
+  const[user,setUser]=useState({value:null});
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem('myUser'));
+ if(user.token){
+  setUser(user);
+  setEmail(user.email);
+}
+  },[])
  const handleChange=async(e)=>{
   if(e.target.name=='name'){
     setName(e.target.value);
@@ -101,6 +109,7 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
     e.preventDefault();
   }
   else{
+    clearCart();
     console.log(r.error);
     toast.error(r.error, {
       position: "top-left",
@@ -155,13 +164,19 @@ theme="light"
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-            <input
+            {user && user.value?<input
+            value={user.email}
+              type="email"
+              id="email"
+              name="email"
+              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" readOnly={true}
+            />:<input
             value={email} onChange={handleChange}
               type="email"
               id="email"
               name="email"
               className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            />}
           </div>
         </div>
       </div>

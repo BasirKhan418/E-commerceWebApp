@@ -5,20 +5,19 @@ const myOrders = () => {
   const [orders,setOrders]= useState([])
   const router =useRouter();
   const fetchorders=async()=>{
-    let token= localStorage.getItem('token');
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/myorders`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({token}),
+      body: JSON.stringify({token:JSON.parse(localStorage.getItem('myUser')).token}),
     });
 
     const response=await res.json();
     setOrders(response.orders);
   }
   useEffect(()=>{
-    if(!localStorage.getItem('token')){
+    if(!localStorage.getItem('myUser')){
      router.push('/');
     }
     else{

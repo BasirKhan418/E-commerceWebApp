@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 const Login = () => {
   useEffect(()=>{
- if(localStorage.getItem('token')){
+ if(localStorage.getItem('myUser')){
   router.push('/');
  }
   },[])
@@ -48,7 +48,7 @@ setPassword(e.target.value)
         progress: undefined,
         theme: "light",
         });
-        localStorage.setItem('token',response.token);
+        localStorage.setItem('myUser',JSON.stringify({token:response.token,email:response.email}));
         setTimeout(()=>{
           router.push('/')
           },1500)

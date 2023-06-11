@@ -12,7 +12,7 @@ console.log(products)
   <div className="container px-5 py-12 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-pink-700'>SPECARE.COM </span></h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest"><span className='font-bold text-pink-700'>TECHPRINT.COM</span></h2>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-2">Order Id:- <span className='font-semi-bold text-pink-700'>{order.orderID}</span></h1>
         <h1 className="text-gray-900 text-xl md:text-3xl title-font font-medium mb-4">Payment Id:- <span className='font-semi-bold text-pink-700'>{order.payment_id}</span></h1>
         <p className="leading-relaxed mb-4">Yayy! Your order has been successfully placed!</p>

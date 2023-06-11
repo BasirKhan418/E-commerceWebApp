@@ -78,9 +78,9 @@ const Checkout = ({ cart, addToCart, removeFromCart, subTotal }) => {
        // Enter the Key ID generated from the Dashboard
       amount: r.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
-      name: "Specare E-com Shopping", //your business name
-      description: "Specare Ecom",
-      image: "/specarelogo2.png",
+      name: "Tech Print Shopping", //your business name
+      description: "Tech Print E-commerce Shopping",
+      image: "logo-color.png",
       order_id: r.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: `${process.env.NEXT_PUBLIC_HOST}/api/postcheckout`,
       prefill: {

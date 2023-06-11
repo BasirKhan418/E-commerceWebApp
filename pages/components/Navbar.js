@@ -19,11 +19,11 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal}) 
       }
   return (
     <>
-    <div className='flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md bg-white sticky top-0 z-10'>
+    <div className='flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md bg-white sticky top-0 z-10 h-20'>
     <Link href={"/"}>
       <div className="logo ml-auto md:mx-5">
           
-            <Image alt="logo" src="/specarelogo1.png" width={150} height={40}/>
+            <Image alt="logo" src="/techprintlogo.png" width={200} height={60}/>
             
         </div></Link>
         <div className="nav">

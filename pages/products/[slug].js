@@ -71,7 +71,7 @@ theme="light"
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
       <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto px-24 object-cover object-top rounded" src={product.img}/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest">Specare</h2>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest">Tech Print</h2>
         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}({product.size}/{product.color})</h1>
         {/* <div className="flex mb-4"> */}
           {/* <span className="flex items-center">

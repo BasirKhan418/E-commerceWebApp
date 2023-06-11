@@ -8,7 +8,7 @@ export default function Home() {
   return (
    <div>
      <Head>
-      <title>Specare -We deliver what you want</title>
+      <title>Tech Print -We deliver what you customize!</title>
       <meta name="description" content='Specare is a online shopping website '/>
       <link rel='icon' href="/favicon.ico"/>
      </Head>
@@ -17,8 +17,8 @@ export default function Home() {
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Specare.com</h1>
-      <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever you want we deliver at your door step you just click on buy now</p>
+      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Techprint.com</h1>
+      <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever you want we customize and deliver at your door step you just click on buy now button</p>
     </div>
     <div className="flex flex-wrap -m-4">
       <div className="xl:w-1/3 md:w-1/2 p-4">

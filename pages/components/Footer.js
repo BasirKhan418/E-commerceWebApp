@@ -9,10 +9,10 @@ const Footer = () => {
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
         <Link href={"/"}>
-       <Image src="/specarelogo1.png" height={300} width={300} className='mx-4 px-4' alt="logo"/>
+       <Image src="/techprintlogo.png" height={60} width={220} className='mx-4 px-4' alt="logo"/>
        </Link>
       </div>
-      <p className="mt-2 text-sm text-gray-500">Specare - We deliver what you want! A shopping website</p>
+      <p className="mt-2 text-sm text-gray-500 text-center">Tech Print - We deliver what you customize! A shopping website</p>
     </div>
     <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
@@ -87,7 +87,7 @@ const Footer = () => {
   </div>
   <div className="bg-gray-100">
     <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p className="text-gray-500 text-sm text-center sm:text-left">© 2023 Specare.com — All Rights Reserved
+      <p className="text-gray-500 text-sm text-center sm:text-left">© 2023 Techprint.com — All Rights Reserved
       </p>
       <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a className="text-gray-500">

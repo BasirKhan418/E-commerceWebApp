@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
+import Image
+ from 'next/image';
 const Signup = () => {
   const router =useRouter();
   useEffect(()=>{
@@ -119,7 +121,7 @@ theme="light"
 />
       <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8 bg-white">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img className="mx-auto h-20 md:h-28 w-auto" src="/specarelogo2.png" alt="Your Company"/>
+  <Image alt="logo" src="/techprintlogo.png" width={180} height={60} className='m-auto'/>
     <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create your account</h2>
   </div>
 

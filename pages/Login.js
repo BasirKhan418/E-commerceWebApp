@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 const Login = () => {
   useEffect(()=>{
  if(localStorage.getItem('token')){
@@ -96,8 +97,8 @@ pauseOnHover
 theme="light"
 />
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img className="mx-auto h-20 w-auto md:h-28" src="/specarelogo2.png" alt="Your Company"/>
-    <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login to your account</h2>
+  <Image alt="logo" src="/techprintlogo.png" width={180} height={60} className='m-auto'/>
+    <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login to your account</h2>
   </div>
 
   <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

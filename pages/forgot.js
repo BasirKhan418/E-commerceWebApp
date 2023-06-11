@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 const forgot = () => {
   const router=useRouter();
@@ -12,7 +13,7 @@ if(localStorage.getItem('token')){
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img className="mx-auto h-20 md:h-28  w-auto" src="/specarelogo2.png" alt="Your Company"/>
+  <Image alt="logo" src="/techprintlogo.png" width={180} height={60} className='m-auto'/>
     <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Forgot your account</h2>
   </div>
 

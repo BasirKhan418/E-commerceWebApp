@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import { render } from 'react-dom';
 const myOrders = () => {
   const [orders,setOrders]= useState([])
   const router =useRouter();

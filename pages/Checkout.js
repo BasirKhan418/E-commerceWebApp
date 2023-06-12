@@ -206,6 +206,7 @@ theme="light"
               type="number"
               id="phone"
               name="phone"
+              placeholder="Enter your 10 digit phone number"
               className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -220,6 +221,7 @@ theme="light"
             </label>
             <input
             value={pincode} onChange={handleChange}
+            placeholder="Enter your 6 digit pincode"
               type="number"
               id="pincode"
               name="pincode"
@@ -248,7 +250,7 @@ theme="light"
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="city" className="leading-7 text-sm text-gray-600">
-              City
+              District
             </label>
             <input
             value={city}

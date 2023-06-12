@@ -18,14 +18,27 @@ const handler = async (req, res) => {
   res.status(200).json({success:false,"error":"Some items in your cart went out of stock . Please try again!"})
   return
  }
+
  if(product.price!=cart[item].price){
-  res.status(200).json({success:false,"error":"The price of some item in your cart has been tempered or changed.Please try again!"})
+  res.status(200).json({success:false,"error":"The price of some item in your cart has been changed.Please try again!"})
   return
  }
  }
  if(sumtotal!==req.body.subTotal){
     res.status(200).json({success:false,"error":"The price of some item in your cart has been changed . Please try again!"})
     return
+ }
+ if(req.body.subTotal<=0){
+  res.status(200).json({success:false,"error":"Your cart is empty please build your cart and try again"})
+  return
+ }
+ if(req.body.phone.length!==10){
+  res.status(200).json({success:false,"error":"Please enter your 10 digit phone number"})
+  return
+ }
+ if(req.body.pincode.length!==6){
+  res.status(200).json({success:false,"error":"Please enter your 6 digit pincode"})
+  return
  }
  // check if product is out of stock or not [pending]
 

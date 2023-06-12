@@ -7,7 +7,8 @@ const OrderSchema =new mongoose.Schema({
     products:{type:Object,required:true},
     address:{type:String,required:true},
     amount:{type:Number,required:true},
-    status:{type:String,default:"initiated",required:true}
+    status:{type:String,default:"initiated",required:true},
+    deliveryStatus:{type:String,default:"unshipped",required:true}
 },{timestamps:true})
 mongoose.models={};
 export default mongoose.model("Order",OrderSchema);

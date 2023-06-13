@@ -17,7 +17,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   const[user,setUser]=useState({value:null});
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem('myUser'));
- if(user.token){
+ if(user && user.token){
   setUser(user);
   setEmail(user.email);
 }
@@ -109,8 +109,9 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
     e.preventDefault();
   }
   else{
-    clearCart();
-    console.log(r.error);
+    if(r.clearCart){
+      clearCart();
+    }
     toast.error(r.error, {
       position: "top-left",
       autoClose: 3000,
@@ -164,7 +165,7 @@ theme="light"
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-            {user && user.value?<input
+            {user && user.token?<input
             value={user.email}
               type="email"
               id="email"

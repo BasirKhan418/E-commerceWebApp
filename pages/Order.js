@@ -36,7 +36,7 @@ console.log(products)
           return <div key={item} className="flex border-t border-gray-200 py-2">
           <span className="text-gray-500">{products[item].name}({products[item].size}/{products[item].variant})</span>
           <span className="m-auto text-gray-900">{products[item].qty}</span>
-          <span className="m-auto text-gray-900">₹{products[item].price}</span>
+          <span className="m-auto text-gray-900">₹{products[item].price}X {products[item].qty}=₹{products[item].price*products[item].qty}</span>
         </div>})}
         <div className="flex my-8">
           <span className="title-font font-medium text-2xl text-gray-900">SubTotal: ₹{order.amount}</span>

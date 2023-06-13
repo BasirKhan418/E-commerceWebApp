@@ -32,11 +32,11 @@ const handler = async (req, res) => {
   res.status(200).json({success:false,"error":"Your cart is empty please build your cart and try again"})
   return
  }
- if(req.body.phone.length!==10){
+ if(req.body.phone.length!==10 ||!Number.isInteger(Number(req.body.phone))){
   res.status(200).json({success:false,"error":"Please enter your 10 digit phone number"})
   return
  }
- if(req.body.pincode.length!==6){
+ if(req.body.pincode.length!==6||!Number.isInteger(Number(req.body.pincode))){
   res.status(200).json({success:false,"error":"Please enter your 6 digit pincode"})
   return
  }

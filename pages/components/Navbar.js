@@ -33,7 +33,7 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal}) 
     {!sidebar && <span onMouseOver={()=>{setDropdown(true)}} onMouseLeave={()=>{setDropdown(false)}}>
           {dropdown&&<div className='absolute right-14 bg-white shadow-lg top-9 rounded-md px-5 w-36 py-4 z-30'>
             <Link href={'/myaccount'}><li className='py-1 text-sm hover:text-pink-700 list-none font-bold'>My Account</li></Link>
-            <Link href={'/orders'}><li className='py-1 text-sm hover:text-pink-700 list-none font-bold'>Orders</li></Link>
+            <Link href={'/orders'}><li className='py-1 text-sm hover:text-pink-700 list-none font-bold'>My Orders</li></Link>
             <li onClick={logout} className='py-1 text-sm hover:text-pink-700 list-none font-bold'>Logout</li>
           </div>}
           </span>}

@@ -63,9 +63,9 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
    else{
     setDisabled(true)
    }
- },[handleChange])
+ },[name,email,phone,address,pincode])
 
-  let rand = Math.floor(Math.random() * 100000);
+  // let rand = Math.floor(Math.random() * 100000);
   const data = { subTotal, cart,email:email,name,address,pincode ,phone};
   const checkoutHandler = async (e) => {
     const response = await fetch(

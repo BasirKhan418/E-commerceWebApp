@@ -16,46 +16,69 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   const[disabled,setDisabled]=useState(true);
   const[user,setUser]=useState({value:null});
   useEffect(()=>{
-    const user = JSON.parse(localStorage.getItem('myUser'));
- if(user && user.token){
-  setUser(user);
-  setEmail(user.email);
+    const myuser = JSON.parse(localStorage.getItem('myUser'));
+ if(myuser && myuser.token){
+  setUser(myuser);
+  setEmail(myuser.email);
+  fetchdata(myuser.token)
+ 
 }
   },[])
- const handleChange=async(e)=>{
-  if(e.target.name=='name'){
-    setName(e.target.value);
-  }
-  else if(e.target.name=='email'){
-    setEmail(e.target.value)
-  }
-  else if(e.target.name=='phone'){
-    setPhone(e.target.value)
-  }
-  else if(e.target.name=='address'){
-    setAddress(e.target.value)
-  }
-  else if(e.target.name=='pincode'){
-    setPincode(e.target.value)
-    if(e.target.value.length==6){
-      let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
+  const handleChange=async(e)=>{
+    if(e.target.name=='name'){
+      setName(e.target.value);
+    }
+    else if(e.target.name=='email'){
+      setEmail(e.target.value)
+    }
+    else if(e.target.name=='phone'){
+      setPhone(e.target.value)
+    }
+    else if(e.target.name=='address'){
+      setAddress(e.target.value)
+    }
+    else if(e.target.name=='pincode'){
+      setPincode(e.target.value)
+      if(e.target.value.length==6){
+       getPincode(e.target.value);
+      }
+      else{
+        setState('')
+        setCity('')
+      }
+      }
+      else{
+        setState('')
+        setCity('')
+      }
+    }
+    
+  const getPincode=async(pin)=>{
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/Pincodes`);
     let pinjson= await pins.json()
-    if(Object.keys(pinjson).includes(e.target.value)){
-      setState(pinjson[e.target.value][1]);
-      setCity(pinjson[e.target.value][0]);
-    }
-    else{
-      setState('')
-      setCity('')
-    }
-    }
-    else{
-      setState('')
-      setCity('')
-    }
-  }
- 
- }
+    if(Object.keys(pinjson).includes(pin)){
+      setState(pinjson[pin][1]);
+      setCity(pinjson[pin][0]);
+  }}
+  const fetchdata=async(token)=>{
+    const data ={token:token};
+    const pr = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const res=await pr.json();
+    console.log(res)
+    console.log(res.name,res.address,res.phone,res.pincode);
+    setName(res.name);
+    setAddress(res.address);
+    setPhone(res.phone);
+    setPincode(res.pincode);
+    getPincode(res.pincode);
+   }
  useEffect(()=>{
   if(name.length>3 && email.length>3 && phone.length>3 && address.length>3 && pincode.length>3){
     setDisabled(false);
@@ -66,7 +89,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
  },[name,email,phone,address,pincode])
 
   // let rand = Math.floor(Math.random() * 100000);
-  const data = { subTotal, cart,email:email,name,address,pincode ,phone};
+  const data = { subTotal, cart,email:email,name,address,pincode ,phone,city,state};
   const checkoutHandler = async (e) => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_HOST}/api/precheckout`,
@@ -151,7 +174,8 @@ theme="light"
             <label htmlFor="name" className="leading-7 text-sm text-gray-600">
               Name
             </label>
-            <input onChange={handleChange}
+            <input 
+            onChange={handleChange}
             value={name}
               type="name"
               id="name"

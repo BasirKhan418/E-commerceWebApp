@@ -62,10 +62,15 @@ instance.orders.create(options, async function(err, order) {
   console.log(order);
   res.status(200).json({order,success:true});
   let ordersd=new Order({
+    name:req.body.name,
     email:req.body.email,
     orderID:order.id,
     products:req.body.cart,
     address:req.body.address,
+    pincode:req.body.pincode,
+    city:req.body.city,
+    state:req.body.state,
+    phone:req.body.phone,
     amount:req.body.subTotal
   })
   await ordersd.save();

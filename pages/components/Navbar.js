@@ -61,13 +61,14 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal}) 
          <button className='bg-pink-600 px-2 py-1 rounded-md text-sm text-white mx-2'>Login</button></></Link>}
          <><AiOutlineShoppingCart className="text-xl md:text-3xl cursor-pointer" onClick={toggleCart}/></>
         </div>
-        <div ref={ref} className={`w-72 h-[100vh] sideCart overflow-y-scroll absolute top-0  bg-pink-100 px-8 py-10 transition-all ${sidebar ? 'right-0':'-right-96'}`}>
+        <div ref={ref} className={`w-80 h-[100vh] sideCart overflow-y-scroll absolute top-0  bg-pink-100 px-8 py-10 transition-all ${sidebar ? 'right-0':'-right-96'}`}>
           <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
           <span onClick={toggleCart} className='absolute top-5 right-2 cursor-pointer text-2xl text-pink-500'><><AiFillCloseCircle/></></span>
          <ol className='list-decimal'>
           {Object.keys(cart).length==0&&<div className='my-4 font-semibold'>Your Cart is Empty!</div>}
           {Object.keys(cart).map((k)=>{return<li key={k}>
-            <div className="item flex my-5">
+            <div className="item flex flex-wrap my-5">
+            <img src={cart[k].img} className='mx-4 mt-2 w-10 h-10 border-2 border-pink-300 rounded'/>
           <div className='w-2/3 font-semibold'>{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
           <div className="flex items-center justify-center w-1/3 font-semibold text-xl"><><AiFillMinusCircle onClick={()=>{removeFromCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className="cursor-pointer text-pink-500"/></><span className='mx-3 text-sm'>{cart[k].qty}</span><><AiFillPlusCircle onClick={()=>{addToCart(k,1,cart[k].price,cart[k].name,cart[k].size,cart[k].variant)}} className='cursor-pointer text-pink-500'/></></div>
           </div>

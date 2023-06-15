@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const forgot = () => {
   const[password,setPassword]=useState('');
   const[email,setEmail]=useState('');
@@ -24,6 +26,8 @@ if(localStorage.getItem('token')){
 }
   },[])
   const sendEmailf=async()=>{
+    if(email.length>4){
+
     const data = {email,sendMail:true};
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_HOST}/api/forgot`,
@@ -37,14 +41,48 @@ if(localStorage.getItem('token')){
       );
    
       const r = await response.json();
-      console.log(r.forgot.token);
+        setEmail("");
+        router.push(`/forgot?token=${r.forgot.token}`);
       if(r.success){
-        console.log("reset password email send successfully")
+        toast.success("Successfully email sent. Please check the email for reset password related instructions ", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
       else{
-        console.log("some error occured")
-      }
+          toast.error("Some error occured", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          }
+
   }
+  else{
+    toast.error("Please enter the valid email", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+
+}
   const resetPassword=async()=>{
     if(password==cpassword){
  const token =router.query.token;
@@ -61,11 +99,31 @@ if(localStorage.getItem('token')){
       );
    
       const r = await response.json();
+      setPassword('');
+      setcPassword('')
       if(r.success){
-        console.log("reset password successfully")
+        toast.success("Successfully your password is reset please login with your new password.", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
       else{
-        console.log("some error occured")
+        toast.error("Some error occured", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
             
     }
@@ -74,6 +132,18 @@ if(localStorage.getItem('token')){
   return (
     <div>
       <div className="flex min-h-full py-12 flex-col items-start justify-center sm:px-6 lg:px-8 bg-white">
+      <ToastContainer
+position="bottom-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
   <Image alt="logo" src="/techprintlogo.png" width={180} height={60} className='m-auto'/>
     <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Forgot your account</h2>

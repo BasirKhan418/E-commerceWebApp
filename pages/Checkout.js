@@ -296,9 +296,11 @@ theme="light"
           )}
           {Object.keys(cart).map((k) => {
             return (
-              <li key={k}>
-                <div className="item flex my-5">
-                  <div className="font-semibold">{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
+              <>
+              <li key={k} className="font-bold">
+                <div className="item flex my-5 flex-wrap items-center">
+                <img src={cart[k].img} className='mt-2 mx-4 w-10 h-10 border-2 border-pink-300 rounded'/>
+                  <div className="font-semibold text-center">{`${cart[k].name}(${cart[k].size}/${cart[k].variant}) `}</div>
                   <div className="flex items-center justify-center w-1/3 font-semibold text-xl">
                     <>
                       <AiFillMinusCircle
@@ -334,6 +336,7 @@ theme="light"
                   </div>
                 </div>
               </li>
+              </>
             );
           })}
         </ol>

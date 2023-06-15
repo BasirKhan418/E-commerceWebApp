@@ -119,7 +119,7 @@ draggable
 pauseOnHover
 theme="light"
 />
-      <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8 bg-white">
+      <div className="flex flex-col justify-center px-6 py-6 lg:px-8 bg-white min-h-screen">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
   <Image alt="logo" src="/techprintlogo.png" width={180} height={60} className='m-auto'/>
     <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create your account</h2>

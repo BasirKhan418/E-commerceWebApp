@@ -83,7 +83,7 @@ setPassword(e.target.value)
   }
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white">
+      <div className="flexl flex-col justify-center px-6 py-12 lg:px-8 bg-white min-h-screen">
       <ToastContainer
 position="top-left"
 autoClose={5000}

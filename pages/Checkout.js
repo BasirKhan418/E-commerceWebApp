@@ -149,7 +149,7 @@ const Checkout = ({cart, clearCart,addToCart, removeFromCart, subTotal }) => {
   };
 
   return (
-    <div className="container px-2 sm:m-auto">
+    <div className="container px-2 sm:m-auto min-h-screen">
        <ToastContainer
 position="bottom-center"
 autoClose={5000}

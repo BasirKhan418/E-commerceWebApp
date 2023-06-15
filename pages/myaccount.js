@@ -135,7 +135,7 @@ const myaccount = () => {
      setPassword('');
      }
   return (
-    <div className='container mx-auto my-9'>
+    <div className='container mx-auto my-9 min-h-screen'>
          <ToastContainer
 position="top-left"
 autoClose={5000}
@@ -148,7 +148,7 @@ draggable
 pauseOnHover
 theme="light"
 />
-      <h1 className='md:text-3xl text-xl font-bold text-center'>Update Your Account </h1>
+      <h1 className='md:text-3xl text-xl font-bold text-center '>Update Your Account </h1>
       <h2 className="font-bold md:text-xl text-lg mx-2">1.Delivery Details</h2>
       <div className="m-auto flex my-2 mx-2">
         <div className="px-2 w-1/2">

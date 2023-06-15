@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 const  Stickers = ({products}) => {
   return (
     <div>
-      <section className="text-gray-600 body-font bg-white z-10">
+      <section className="text-gray-600 body-font bg-white z-10 min-h-screen">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-wrap -m-4 justify-center">
       {Object.keys(products).length===0 && <p>Sorry! All items are out of stock it will be available soon.</p>}
